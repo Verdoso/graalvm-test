@@ -16,7 +16,7 @@
       "name":"java.math.BigInteger"
     },
     {
-      "name":"org.greeneyed.graalvm_test.services.EplCSVProcessor$LibroCSV"
+      "name":"org.greeneyed.epl.librarian.services.EplCSVProcessor$LibroCSV"
     }
   ],
   "lambdaCapturingTypes":[

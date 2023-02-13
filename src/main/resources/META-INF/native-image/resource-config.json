@@ -47,30 +47,6 @@
       "pattern":"\\Qorg/eclipse/jetty/version/build.properties\\E"
     }, 
     {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/\\E"
-    }, 
-    {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/BibliotecaService$AUTOR_ORDERING.class\\E"
-    }, 
-    {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/BibliotecaService$BOOK_ORDERING.class\\E"
-    }, 
-    {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/BibliotecaService$ElementOrdering.class\\E"
-    }, 
-    {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/BibliotecaService$GENERO_ORDERING.class\\E"
-    }, 
-    {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/BibliotecaService$IDIOMA_ORDERING.class\\E"
-    }, 
-    {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/BibliotecaService.class\\E"
-    }, 
-    {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/DataLoaderService.class\\E"
-    }, 
-    {
       "pattern":"\\Qorg/greeneyed/epl/librarian/services/EplCSVProcessor$LibroCSV.class\\E"
     }, 
     {
@@ -80,13 +56,37 @@
       "pattern":"\\Qorg/greeneyed/epl/librarian/services/EplCSVProcessor.class\\E"
     }, 
     {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/MapperService.class\\E"
+      "pattern":"\\Qorg/greeneyed/epl/librarian/services/\\E"
     }, 
     {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/MapperServiceImpl.class\\E"
+      "pattern":"\\Qorg/greeneyed/graalvm_test/\\E"
     }, 
     {
-      "pattern":"\\Qorg/greeneyed/epl/librarian/services/PreferencesService.class\\E"
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/BibliotecaService$AUTOR_ORDERING.class\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/BibliotecaService$BOOK_ORDERING.class\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/BibliotecaService$ElementOrdering.class\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/BibliotecaService$GENERO_ORDERING.class\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/BibliotecaService$IDIOMA_ORDERING.class\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/BibliotecaService.class\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/DataLoaderService.class\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/MapperService.class\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/greeneyed/graalvm_test/services/MapperServiceImpl.class\\E"
     }, 
     {
       "pattern":"\\Qorg/springframework/beans/factory/Aware.class\\E"

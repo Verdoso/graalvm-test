@@ -146,7 +146,7 @@
   "methods":[
     {"name":"getJsonFactory","parameterTypes":[] }, 
     {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","com.fasterxml.jackson.core.type.ResolvedType"] }, 
-    {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","java.lang.Class"] }
+    {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","com.fasterxml.jackson.core.type.TypeReference"] }
   ]
 },
 {
@@ -985,6 +985,27 @@
   "name":"org.eclipse.jetty.websocket.jakarta.server.config.JakartaWebSocketServletContainerInitializer"
 },
 {
+  "name":"org.greeneyed.epl.librarian.services.EplCSVProcessor",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "methods":[
+    {"name":"<init>","parameterTypes":[] }, 
+    {"name":"processBackup","parameterTypes":[] }
+  ]
+},
+{
+  "name":"org.greeneyed.epl.librarian.services.EplCSVProcessor$$SpringCGLIB$$0",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "fields":[{"name":"CGLIB$FACTORY_DATA"}],
+  "methods":[
+    {"name":"<init>","parameterTypes":[] }, 
+    {"name":"CGLIB$SET_STATIC_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }, 
+    {"name":"CGLIB$SET_THREAD_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }
+  ]
+},
+{
   "name":"org.greeneyed.graalvm_test.Application",
   "allDeclaredFields":true,
   "allDeclaredClasses":true,
@@ -1014,7 +1035,7 @@
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true,
   "methods":[
-    {"name":"<init>","parameterTypes":["org.greeneyed.graalvm_test.services.MapperService","org.greeneyed.graalvm_test.services.PreferencesService"] }, 
+    {"name":"<init>","parameterTypes":["org.greeneyed.graalvm_test.services.MapperService"] }, 
     {"name":"postConstruct","parameterTypes":[] }
   ]
 },
@@ -1022,9 +1043,8 @@
   "name":"org.greeneyed.graalvm_test.services.DataLoaderService",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
   "methods":[
-    {"name":"<init>","parameterTypes":["org.greeneyed.graalvm_test.services.EplCSVProcessor","org.greeneyed.graalvm_test.services.BibliotecaService"] }, 
+    {"name":"<init>","parameterTypes":["org.greeneyed.epl.librarian.services.EplCSVProcessor","org.greeneyed.graalvm_test.services.BibliotecaService"] }, 
     {"name":"equals","parameterTypes":["java.lang.Object"] }, 
     {"name":"getBibliotecaService","parameterTypes":[] }, 
     {"name":"getEnvironment","parameterTypes":[] }, 
@@ -1042,26 +1062,7 @@
   "queryAllDeclaredConstructors":true,
   "fields":[{"name":"CGLIB$FACTORY_DATA"}],
   "methods":[
-    {"name":"<init>","parameterTypes":["org.greeneyed.graalvm_test.services.EplCSVProcessor","org.greeneyed.graalvm_test.services.BibliotecaService"] }, 
-    {"name":"CGLIB$SET_STATIC_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }, 
-    {"name":"CGLIB$SET_THREAD_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }
-  ]
-},
-{
-  "name":"org.greeneyed.graalvm_test.services.EplCSVProcessor",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"org.greeneyed.graalvm_test.services.EplCSVProcessor$$SpringCGLIB$$0",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "fields":[{"name":"CGLIB$FACTORY_DATA"}],
-  "methods":[
-    {"name":"<init>","parameterTypes":[] }, 
+    {"name":"<init>","parameterTypes":["org.greeneyed.epl.librarian.services.EplCSVProcessor","org.greeneyed.graalvm_test.services.BibliotecaService"] }, 
     {"name":"CGLIB$SET_STATIC_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }, 
     {"name":"CGLIB$SET_THREAD_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }
   ]
@@ -1078,60 +1079,7 @@
   "queryAllDeclaredConstructors":true,
   "methods":[
     {"name":"<init>","parameterTypes":[] }, 
-    {"name":"from","parameterTypes":["org.greeneyed.graalvm_test.services.EplCSVProcessor$LibroCSV"] }
-  ]
-},
-{
-  "name":"org.greeneyed.graalvm_test.services.PreferencesService",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "methods":[
-    {"name":"<init>","parameterTypes":[] }, 
-    {"name":"actualizarAutoresPreferidos","parameterTypes":["java.util.Set","java.util.Set"] }, 
-    {"name":"actualizarGenerosPreferidos","parameterTypes":["java.util.Set","java.util.Set"] }, 
-    {"name":"actualizarIdiomasPreferidos","parameterTypes":["java.util.Set","java.util.Set"] }, 
-    {"name":"canAplyAutoresFavoritos","parameterTypes":[] }, 
-    {"name":"canAplyGenerosFavoritos","parameterTypes":[] }, 
-    {"name":"canAplyIdiomasFavoritos","parameterTypes":[] }, 
-    {"name":"checkAutorFavorito","parameterTypes":["java.lang.String"] }, 
-    {"name":"checkAutorFavorito","parameterTypes":["java.util.List"] }, 
-    {"name":"checkGeneroFavorito","parameterTypes":["java.lang.String"] }, 
-    {"name":"checkGeneroFavorito","parameterTypes":["java.util.List"] }, 
-    {"name":"checkIdiomaFavorito","parameterTypes":["java.lang.String"] }, 
-    {"name":"equals","parameterTypes":["java.lang.Object"] }, 
-    {"name":"findPreferencesFile","parameterTypes":["boolean"] }, 
-    {"name":"getAutoresPreferidos","parameterTypes":[] }, 
-    {"name":"getBDDCalibre","parameterTypes":[] }, 
-    {"name":"getFechaBase","parameterTypes":[] }, 
-    {"name":"getGenerosPreferidos","parameterTypes":[] }, 
-    {"name":"getIdiomasPreferidos","parameterTypes":[] }, 
-    {"name":"getLibrosDescartados","parameterTypes":[] }, 
-    {"name":"getLock","parameterTypes":[] }, 
-    {"name":"getPreferences","parameterTypes":[] }, 
-    {"name":"getPreferencesFile","parameterTypes":[] }, 
-    {"name":"getReadLock","parameterTypes":[] }, 
-    {"name":"getWriteLock","parameterTypes":[] }, 
-    {"name":"hashCode","parameterTypes":[] }, 
-    {"name":"isSuperPortable","parameterTypes":[] }, 
-    {"name":"postConstruct","parameterTypes":[] }, 
-    {"name":"setDescarte","parameterTypes":["java.lang.Integer","boolean"] }, 
-    {"name":"setFechaBase","parameterTypes":["java.time.LocalDate"] }, 
-    {"name":"setPreferencesFile","parameterTypes":["java.io.File"] }, 
-    {"name":"setSuperPortable","parameterTypes":["boolean"] }, 
-    {"name":"toString","parameterTypes":[] }
-  ]
-},
-{
-  "name":"org.greeneyed.graalvm_test.services.PreferencesService$$SpringCGLIB$$0",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "fields":[{"name":"CGLIB$FACTORY_DATA"}],
-  "methods":[
-    {"name":"<init>","parameterTypes":[] }, 
-    {"name":"CGLIB$SET_STATIC_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }, 
-    {"name":"CGLIB$SET_THREAD_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }
+    {"name":"from","parameterTypes":["org.greeneyed.epl.librarian.services.EplCSVProcessor$LibroCSV"] }
   ]
 },
 {
