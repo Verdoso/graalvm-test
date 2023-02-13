@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.greeneyed</groupId>
+  <artifactId>graalvm-test</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>GraalVM test</name>
+  <scm>
+    <developerConnection>scm:git:https://github.com/Verdoso/${project.artifactId}</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.0.2</version>
+    <relativePath /> <!-- lookup parent from repository -->
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <m2e.apt.activation>jdt_apt</m2e.apt.activation>
+    <java.version>17</java.version>
+    <javax.inject.version>1</javax.inject.version>
+    <maven-scm-plugin.version>1.9.5</maven-scm-plugin.version>
+    <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+    <commons-text.version>1.4</commons-text.version>
+    <commons-io.version>2.7</commons-io.version>
+    <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
+    <cqengine.version>3.6.0</cqengine.version>
+    <jakarta-servlet.version>5.0.0</jakarta-servlet.version>
+    <native-image-name>graalvm_test</native-image-name>
+    <descriptor-ref />
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.tomcat.embed</groupId>
+          <artifactId>tomcat-embed-el</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jetty</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>${javax.inject.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
+      <version>${commons-text.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${org.mapstruct.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.googlecode.cqengine</groupId>
+      <artifactId>cqengine</artifactId>
+      <version>${cqengine.version}</version>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.graalvm.buildtools</groupId>
+        <artifactId>native-maven-plugin</artifactId>
+        <configuration>
+          <imageName>${native-image-name}</imageName>
+          <buildArgs>
+            <buildArg>--initialize-at-build-time=ch.qos.logback</buildArg>
+            <buildArg>--initialize-at-build-time=org.apache.commons.logging.LogFactoryService</buildArg>
+          </buildArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <configuration>
+          <!-- This is an app, so we don't want to install it in the local Maven repository -->
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <fork>true</fork>
+          <compilerArgs>
+            <arg>-Xlint:all,-deprecation,-unchecked,-processing,-requires-transitive-automatic</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</arg>
+          </compilerArgs>
+          <testCompilerArgument>-Xlint:none</testCompilerArgument>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${org.mapstruct.version}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>true</executable>
+          <excludes>
+            <exclude>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+            </exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <skipSource>true</skipSource>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
