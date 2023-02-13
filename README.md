@@ -8,7 +8,7 @@ Running under an "x64 Native Tools Command Prompt" and having GraalVM CE 22.3.1 
 ## Package .jar and create native version
 ```
 set JAVA_HOME=%GRAAL_HOME%
-mvn -DskipTests -Pnative native:compile
+mvn -Pnative native:compile
 ```
 
 ## Run both versions
