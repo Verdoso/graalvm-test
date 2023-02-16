@@ -112,6 +112,10 @@
         <configuration>
           <imageName>${native-image-name}</imageName>
           <buildArgs>
+            <!-- 
+            <buildArg>- -pgo-instrument</buildArg>
+            <buildArg>- -pgo=target/default.iprof</buildArg>
+            -->
             <buildArg>--initialize-at-build-time=ch.qos.logback</buildArg>
             <buildArg>--initialize-at-build-time=org.apache.commons.logging.LogFactoryService</buildArg>
           </buildArgs>
