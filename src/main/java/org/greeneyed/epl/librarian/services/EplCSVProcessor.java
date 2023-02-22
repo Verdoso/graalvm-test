@@ -130,7 +130,7 @@ public class EplCSVProcessor {
 	}
 
 	public UpdateSpec processBackup() {
-		File file = new File("..\\test.ser");
+		File file = new File(".." + File.pathSeparator + "test.ser");
 		log.warn("Reading file: {}", file.getAbsolutePath());
 		LocalDateTime fechaActualizacion = Instant.ofEpochMilli(file.lastModified())
 				.atZone(ZoneId.systemDefault())
